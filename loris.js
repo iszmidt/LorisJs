@@ -16,8 +16,8 @@ let c = process.argv[3] || 9999
 let alive = 0;
 
 const open = ()=>{
-	var client = net.connect(args.port, args.host, ()=> {
 		alive++;
+	var client = net.connect(args.port, args.host, ()=> {		
 		//send just a part of the header, so the server keeps waiting for the rest of the request
 		client.write('GET / HTTP/1.1\r\n');
 	});	
