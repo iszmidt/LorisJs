@@ -1,5 +1,5 @@
 const net = require('net');
-const parse = require('url').parse;
+const { parse } = require('url');
 
 //url
 let url = process.argv[2];
@@ -15,8 +15,7 @@ let c = process.argv[3] || 9999
 //alive connections
 let alive = 0;
 
-const open = ()=>{
-	
+const open = ()=>{	
 	const client = net.connect(args.port, args.host, ()=> {	
 		alive++;
 		//send just a part of the header, so the server keeps waiting for the rest of the request
