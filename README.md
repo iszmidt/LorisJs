@@ -9,5 +9,5 @@ $ node loris [url] [number of connections]
   
 ### example:
 ```sh
-  node loris https://example.com 5000
+$ node loris https://example.com 5000
 ```
